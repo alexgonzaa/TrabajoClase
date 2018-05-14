@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script>
+   function play(){
+       var audio = document.getElementById("cancion");
+       cancion.play();
+   }
+       function pause(){
+           cancion.pause();
+       }
+    </script>
+    </head>
+    <body>
+
+    <h1>Escuchemos musica</h1>
+        <div>
+            <audio id="cancion" src="cancion.mp3"></audio>
+            <button onclick="play()">PLAY</button>
+            <button onclick="pause()">Pause</button>
+
+        </div>
+
+    </body>
+
+</html>

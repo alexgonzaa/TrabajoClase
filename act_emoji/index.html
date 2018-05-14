@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <script>
+
+    function funcionTriste(){
+   var imagen = document.getElementById("imagen").src = "triste.png";
+    }
+      function funcionFeliz(){
+   var imagen = document.getElementById("imagen").src = "feliz.png";
+       }
+       function funcionOtros(){
+          var imagen = document.getElementById("imagen").src = "otros.jpg";
+
+       }
+
+
+
+    </script>
+    </head>
+    <body>
+        <div>
+    <h1>Estilo de animo con JAVASCRIPT</h1>
+       <button onclick="funcionTriste()">Triste</button>
+        <img width="30%" height="30%" id="imagen" alt="emoji" src="feliz.png">
+      <button onclick="funcionFeliz()">Feliz</button>
+            <button onclick="funcionOtros()">Otros</button>
+        </div>
+
+    </body>
+
+</html>
