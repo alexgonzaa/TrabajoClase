@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Actividad 8 Javascript</title>
+<script>
+function convertir(){
+    var euros;
+    euros = document.getElementById("euros").value;
+    document.getElementById("dolares").value = euros*1.23;
+ }
+ </script>
+ </head>
+ <body>
+   <h1>Convertir euros a dolares</h1>
+    <form>
+      Euros: <input id="euros" type="text"><br>
+      Dolares: <input id="dolares" type="text"><br>
+      <input value="Calcular" onclick="convertir()" type="button">
+    </form>
+ </body>
+ </html>

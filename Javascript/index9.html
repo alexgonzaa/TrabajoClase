@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Actividad 9 Javascript</title>
+<script>
+var precio,noches;
+function calcular_coste(){
+    noches = document.getElementById("noches").value;
+    precio = coste_hotel(noches);
+    document.getElementById("precio").value = precio;
+}
+function coste_hotel(noches){
+    precio = 140 * noches;
+    return precio;
+}
+</script>
+</head>
+<body>
+  <h1>Calcular precio del hotel.</h1>
+    <label>Introduce el numero de noches</label>
+    <input id="noches" type="text">
+    <input onclick="calcular_coste()" value="calcular" type="button"><br>
+    <input id="precio" type="text">
+</body>
+</html>
