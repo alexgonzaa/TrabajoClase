@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+ <meta charset="UTF-8">
+ <title>Actividad 6 Javascript</title>
+ <script>
+ function cambiar(){
+ var gCentigrados = document.getElementById("centigrados").value;
+ gFarenheit = gCentigrados*9/5 + 32;
+ document.getElementById("farenheit").value = gFarenheit;
+ }
+ </script>
+ </head>
+ <body>
+ <h1>Convertidor grados centigrados - farenheit</h1>
+ <form>
+ Grados centigrados: <input id="centigrados" value="0" type="text"><br>
+ Grados farenheit: <input id="farenheit" type="text"><br>
+ <input value="Analizar" onclick="cambiar()" type="button">
+ </form>
+ </body>
+ </html>

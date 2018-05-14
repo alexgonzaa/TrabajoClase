@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actividad 7 Javascript</title>
+    <script>
+        function operacion(){
+          var signo,num1,num2,resultado;
+          signo = document.getElementById('signo').value;
+          num1 = parseInt(document.getElementById('num1').value);
+          num2 = parseInt(document.getElementById('num2').value);
+          if(signo == "+"){
+                resultado = num1 + num2;
+          }else if(signo == "-"){
+                resultado = num1 - num2;
+          }else if(signo == "*"){
+                resultado = num1 * num2;
+          }else{
+                resultado = num1 / num2;
+          }
+          document.getElementById('resultado').value = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <form>
+        <input id="num1" type="text">
+        <select id="signo">
+            <option value="+">+
+            </option>
+            <option value="-">-
+            </option>
+            <option value="*">*
+            </option>
+            <option value="/">/
+            </option>
+        </select>
+        <input id="num2" type="text">
+        <input value="Calcular" onclick="operacion()" type="button">
+    </form><br>
+    <input id="resultado" type="text">
+</body>
+</body>
+</html>
