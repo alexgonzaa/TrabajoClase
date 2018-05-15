@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Actividad 10 javascript</title>
+</head>
+
+
+	<script type="text/javascript">
+		function costeAvion(){
+      var noches = document.getElementById("noches").value;
+    	var ciudad = document.getElementById("ciudad").value;
+      var coste;
+      var resultado;
+			    if(ciudad == "Oviedo"){
+				       coste = 325 * noches;
+			          }
+          else if(ciudad == "Tokyo"){
+				       coste = 1200 * noches;
+			          }
+          else if(ciudad == "Madrid"){
+				       coste = 200 * noches;
+			          }
+          else if(ciudad == "Barcelona"){
+			         coste = 150 * noches;
+			          }
+			    if(noches > 3){
+				       resultado = coste - coste*0.1;
+			          }
+          else{
+              resultado = coste
+            }
+	     document.getElementById("resultado").value = resultado;
+     }
+	</script>
+</head>
+<body>
+  	<h1>Calcular precio del viaje.</h1>
+	   <label>Indica el numero de noches</label>
+	    <input id="noches" type="text">
+	     <select id="ciudad">
+		       <option value="Oviedo">Oviedo</option>
+		       <option value="Tokyo">Tokyo</option>
+		       <option value="Madrid">Madrid</option>
+           <option value="Barcelona">Barcelona</option>
+	     </select>
+	<input onclick="costeAvion()" value="calcular" type="button"><br>
+	<input id="resultado" type="text">
+
+</body>
+</html>
