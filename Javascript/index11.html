@@ -10,17 +10,12 @@
 	<script type="text/javascript">
 		function costeCoste(){
       var noches = document.getElementById("noches").value;
-      var coste;
-      var resultado;
-      coste = noches * 40;
+      var resultado = noches * 40;
       if(noches >=3 && noches < 7){
-        resultado = coste - 20;
+        resultado = resultado - 20;
       }
       else if(noches >= 7){
-        resultado = coste - 50;
-      }
-      else {
-        resultado = coste;
+        resultado = resultado - 50;
       }
 	     document.getElementById("resultado").value = resultado;
      }
