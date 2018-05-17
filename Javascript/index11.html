@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Actividad 11 javascript</title>
+</head>
+
+
+	<script type="text/javascript">
+		function costeCoste(){
+      var noches = document.getElementById("noches").value;
+      var coste;
+      var resultado;
+      coste = noches * 40;
+      if(noches >=3 && noches < 7){
+        resultado = coste - 20;
+      }
+      else if(noches >= 7){
+        resultado = coste - 50;
+      }
+      else {
+        resultado = coste;
+      }
+	     document.getElementById("resultado").value = resultado;
+     }
+	</script>
+</head>
+<body>
+  	<h1>Calcular precio del coche.</h1>
+	   <label>Indica el numero de noches</label>
+	    <input id="noches" type="text">
+
+	<input onclick="costeCoste()" value="calcular" type="button"><br>
+	<input id="resultado" type="text">
+
+</body>
+</html>
