@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Actividad 11 javascript</title>
+</head>
+	<script type="text/javascript">
+  function calcularCoste(){
+      var noches = document.getElementById("noches").value;
+      var precioHotel = costeHotel(noches);
+      var precioAvion = costeAvion(noches);
+      var precioCoche = costeCoche(noches);
+      var precioTotal = precioAvion + precioCoche + precioHotel;
+      document.getElementById("resultadoHotel").value = precioHotel;
+      document.getElementById("resultadoAvion").value = precioAvion;
+      document.getElementById("resultadoCoche").value = precioCoche;
+      document.getElementById("resultadoTotal").value = precioTotal
+  }
+  function costeHotel(noches){
+      precio = 140 * noches;
+      return precio;
+  }
+  function costeAvion(noches){
+    var ciudad = document.getElementById("ciudad").value;
+    var precio;
+        if(ciudad == "Oviedo"){
+             precio = 325;
+              }
+        else if(ciudad == "Tokyo"){
+             precio = 1200;
+              }
+        else if(ciudad == "Madrid"){
+             precio = 200;
+              }
+        else if(ciudad == "Barcelona"){
+             precio = 150;
+              }
+        if(noches > 3){
+             precio = precio - precio*0.1;
+              }
+       return precio;
+   }
+   function costeCoche(noches){
+     var precio = noches * 40;
+     if(noches >=3 && noches < 7){
+       precio = precio - 20;
+     }
+     else if(noches >= 7){
+       precio = precio - 50;
+     }
+      return precio;
+    }
+	</script>
+</head>
+<body>
+  	<h1>Calcular precio del coche.</h1>
+	   <label>Indica el numero de noches</label>
+	    <input id="noches" type="text">
+      <select id="ciudad">
+          <option value="Oviedo">Oviedo</option>
+          <option value="Tokyo">Tokyo</option>
+          <option value="Madrid">Madrid</option>
+          <option value="Barcelona">Barcelona</option>
+      </select>
+	<input onclick="calcularCoste()" value="calcular" type="button"><br><br>
+	<label>Precio del coche</label>
+  <input id="resultadoCoche" values="" type="text" disabled="disabled"><br>
+  <label>Precio del hotel</label>
+  <input id="resultadoHotel" values="" type="text" disabled="disabled"><br>
+  <label>Precio del avion</label>
+  <input id="resultadoAvion" values="" type="text" disabled="disabled"><br>
+  <label>Coste total del viaje</label>
+  <input id="resultadoTotal" values="" type="text" disabled="disabled">
+
+</body>
+</html>

@@ -11,26 +11,22 @@
 		function costeAvion(){
       var noches = document.getElementById("noches").value;
     	var ciudad = document.getElementById("ciudad").value;
-      var coste;
       var resultado;
 			    if(ciudad == "Oviedo"){
-				       coste = 325 * noches;
+				       resultado = 325;
 			          }
           else if(ciudad == "Tokyo"){
-				       coste = 1200 * noches;
+				       resultado = 1200;
 			          }
           else if(ciudad == "Madrid"){
-				       coste = 200 * noches;
+				       resultado = 200;
 			          }
           else if(ciudad == "Barcelona"){
-			         coste = 150 * noches;
+			         resultado = 150;
 			          }
 			    if(noches > 3){
-				       resultado = coste - coste*0.1;
+				       resultado = resultado - resultado*0.1;
 			          }
-          else{
-              resultado = coste
-            }
 	     document.getElementById("resultado").value = resultado;
      }
 	</script>
