@@ -2,10 +2,11 @@
 <!-- saved from url=(0047)http://www.uv.es/~jac/guia/jscript/palabras.htm -->
 <HTML><head>
 <script type="text/javascript"></script>
-<link rel="stylesheet" type="text/css"/>
-<link rel="stylesheet" type="text/css"s/>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+
 <TITLE>Ejemplo de juego</TITLE>
-<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+
 <SCRIPT language=JavaScript>
 var hombre = new Array("___\n", "   |\n", "   O\n", "  /", "|", "\\\n", "  /", " \\\n", "___")
 var palabra
@@ -17,16 +18,12 @@ var libreriaPalabras = new Array("m u l t i m e d i a", "i n t e r n a u t a", "
 var partes = 0
 var colNueva = 0
 var jugando
-
-
 function ObtienePalabra() {
    //obtiene la palabra para jugar de forma pseudoaleatoria
    var indice = Math.round ( Math.random() * 27 )
    var cadena = new String( libreriaPalabras[indice] )
    palabra = cadena.split(" ")
 }
-
-
 function DibujaHombre(visor, partes) {
    //dibuja el hombre ahorcado
    //partes indica el numero de partes a dibujar
@@ -37,14 +34,12 @@ function DibujaHombre(visor, partes) {
       }
    visor.displayHombre.value = dibujo
 }
-
-
 function DibujaLetra(visor, letra) {
    //dibuja una letra de la palabra
    //posicion indica donde debe dibujar la letra
    var flag = false
    //indica si se encontro la letra
-   //obtiene cadena actual
+   //obtiene cadena actua
    var cadena = new String(visor.displayPalabra.value)
    //la separa en sus espacios
    var letrasCadena = cadena.split(" ")
@@ -59,8 +54,6 @@ function DibujaLetra(visor, letra) {
    visor.displayPalabra.value = cadena
    return flag
 }
-
-
 function NuevaLetra(visor, letra) {
    //añade letra lista de letras
    visor.displayLetras.value += letra + " "
@@ -71,8 +64,6 @@ function NuevaLetra(visor, letra) {
    } else
       colNueva++
 }
-
-
 function Juega(visor, letra) {
    //comprueba si esta jugando
    if (jugando) {
@@ -93,20 +84,25 @@ function Juega(visor, letra) {
          alert('Pulsa Juego nuevo para comenzar\nuna partida nueva.')
    }
 }
-
 function IniciaJuego(visor) {
    //inicializa visor y variables globales
    jugando = true
    partes = 0
    colNueva = 0
+var nombre
+     nombre = prompt("Indica el nombre del jugador");
+     alert('Bienvenido al juego ' + nombre);
+     nombre = "Jugador " + nombre;
+     document.getElementById("jug").innerHTML = nombre;
    ObtienePalabra()
    DibujaHombre(visor, partes)
+
+
    visor.displayPalabra.value = ""
    for (var x = 0; x < palabra.length; x++)
       visor.displayPalabra.value += "_ "
    visor.displayLetras.value = ""
 }
-
 function CompruebaPalabra(visor) {
    //comprueba si se completo toda la palabra
    var fin = true
@@ -119,8 +115,6 @@ function CompruebaPalabra(visor) {
          fin = false
    return fin
 }
-
-
 function FinJuego(resultado) {
    //indica que si se ha perdido o ganado
    var solucion = ""
@@ -137,92 +131,70 @@ function FinJuego(resultado) {
    }
 }
 </SCRIPT>
-
 <META content="MSHTML 6.00.2900.2802" name=GENERATOR></HEAD>
 <BODY>
-<H2>Juego del ahorcado</H2>
+<H2>El magnífico juego del ahorcado</H2>
+<div id="jugador">
+<h3 id="jug">Inicia una partida <br>
+  para empezar a jugar</h3>
+
+</div>
+<div id="form">
 <FORM name=visor>
 <CENTER>
-<TABLE width=547>
+<TABLE>
   <TBODY>
   <TR>
-    <TD align=middle width=150 colSpan=3><TEXTAREA name=displayHombre rows=6 cols=15></TEXTAREA>
-    <TD align=middle width=150 colSpan=3><TEXTAREA name=displayLetras rows=6 cols=15></TEXTAREA>
+    <TD align=middle width=200 height=200 colSpan=3><TEXTAREA class="paisano"name=displayHombre rows=6 cols=15 disabled=disabled></TEXTAREA>
+    <TD align=middle width=200 height=200 colSpan=3><TEXTAREA class="letritas"name=displayLetras rows=6 cols=15 disabled=disabled></TEXTAREA>
     <TD width=200>
   <TR>
-    <TD align=middle width=300 colSpan=6><INPUT size=42 name=displayPalabra>
+    <TD align=middle width=300 colSpan=6><INPUT size=80 name=displayPalabra disabled=disabled>
     <TD align=middle>&nbsp;
   <TR>
-    <TD align=middle width=50><INPUT onclick="Juega(this.form, 'a')" type=button value=" A " name=botA>
-
-    <TD align=middle width=50><INPUT onclick="Juega(this.form, 'b')" type=button value=" B " name=botB>
-
-    <TD align=middle width=50><INPUT onclick="Juega(this.form, 'c')" type=button value=" C " name=botC>
-
-    <TD align=middle width=50><INPUT onclick="Juega(this.form, 'd')" type=button value=" D " name=botD>
-
-    <TD align=middle width=50><INPUT onclick="Juega(this.form, 'e')" type=button value=" E " name=botE>
-
-    <TD align=middle width=50><INPUT onclick="Juega(this.form, 'f')" type=button value=" F " name=botF>
-
+    <TD align=middle width=50><INPUT class="letras" onclick="Juega(this.form, 'a')" type=button value=" A " name=botA>
+    <TD align=middle width=50><INPUT class="letras" onclick="Juega(this.form, 'b')" type=button value=" B " name=botB>
+    <TD align=middle width=50><INPUT class="letras" onclick="Juega(this.form, 'c')" type=button value=" C " name=botC>
+    <TD align=middle width=50><INPUT class="letras" onclick="Juega(this.form, 'd')" type=button value=" D " name=botD>
+    <TD align=middle width=50><INPUT class="letras" onclick="Juega(this.form, 'e')" type=button value=" E " name=botE>
+    <TD align=middle width=50><INPUT class="letras" onclick="Juega(this.form, 'f')" type=button value=" F " name=botF>
     <TD>
   <TR>
-    <TD align=middle><INPUT onclick="Juega(this.form, 'g')" type=button value=" G " name=botG>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'h')" type=button value=" H " name=botH>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'i')" type=button value=" I " name=botI>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'j')" type=button value=" J " name=botJ>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'k')" type=button value=" K " name=botK>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'l')" type=button value=" L " name=botL>
-
-    <TD vAlign=center align=right>Ganadas: <INPUT size=4 value=0 name=ganadas>
-
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'g')" type=button value=" G " name=botG>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'h')" type=button value=" H " name=botH>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'i')" type=button value=" I " name=botI>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'j')" type=button value=" J " name=botJ>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'k')" type=button value=" K " name=botK>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'l')" type=button value=" L " name=botL>
+    <TD vAlign=center align=right><b>Ganadas:</b> <INPUT size=4 value=0 name=ganadas disabled=disabled>
   <TR>
-    <TD align=middle><INPUT onclick="Juega(this.form, 'm')" type=button value=" M " name=botM>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'n')" type=button value=" N " name=botN>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'ñ')" type=button value=" Ñ " name=botÑ>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'o')" type=button value=" O " name=botO>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'p')" type=button value=" P " name=botP>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'q')" type=button value=" Q " name=botQ>
-
-    <TD vAlign=center align=right>Perdidas: <INPUT size=4 value=0
-      name=perdidas>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'm')" type=button value=" M " name=botM>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'n')" type=button value=" N " name=botN>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'ñ')" type=button value=" Ñ " name=botÑ>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'o')" type=button value=" O " name=botO>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'p')" type=button value=" P " name=botP>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'q')" type=button value=" Q " name=botQ>
+    <TD vAlign=center align=right><b>Perdidas:</b> <INPUT size=4 value=0
+      name=perdidas disabled=disabled>
   <TR>
-    <TD align=middle><INPUT onclick="Juega(this.form, 'r')" type=button value=" R " name=botR>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 's')" type=button value=" S " name=botS>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 't')" type=button value=" T " name=botT>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'u')" type=button value=" U " name=botU>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'v')" type=button value=" V " name=botV>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'w')" type=button value=" W " name=botW>
-
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'r')" type=button value=" R " name=botR>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 's')" type=button value=" S " name=botS>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 't')" type=button value=" T " name=botT>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'u')" type=button value=" U " name=botU>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'v')" type=button value=" V " name=botV>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'w')" type=button value=" W " name=botW>
     <TD>
   <TR>
-    <TD align=middle><INPUT onclick="Juega(this.form, 'x')" type=button value=" X " name=botX>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'y')" type=button value=" Y " name=botY>
-
-    <TD align=middle><INPUT onclick="Juega(this.form, 'z')" type=button value=" Z " name=botZ>
-
-    <TD align=middle colSpan=3><INPUT onclick=IniciaJuego(this.form) type=button value="  Juego nuevo   " name=Inicia>
-
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'x')" type=button value=" X " name=botX>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'y')" type=button value=" Y " name=botY>
+    <TD align=middle><INPUT class="letras" onclick="Juega(this.form, 'z')" type=button value=" Z " name=botZ>
+<TD align=middle colSpan=3><INPUT class="nuevaPartida" onclick=IniciaJuego(this.form) type=button value="  Juego nuevo   " name=Inicia>
     <TD align=middle><INPUT onclick="this.form.ganadas.value='0'; this.form.perdidas.value='0'" type=button value=Limpiar name=B1>
   </TR></TBODY></TABLE></CENTER></FORM>
 <HR>
 
 <CENTER>
-<H3>[<A href="http://www.uv.es/~jac/guia/jscript/javascr.htm">Volver</A>]
-</H3></CENTER></BODY></HTML>
+<H3>[<A href="http://www.uv.es/~jac/guia/jscript/javascr.htm">Volver</A>]</H3></CENTER>
+</div>
+</BODY>
+</HTML>

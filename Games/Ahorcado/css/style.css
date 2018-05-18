@@ -1,0 +1,71 @@
+body{
+
+  background-image: url("../imagenes/fondo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.letras{
+  width: 100px;
+  height: 30px;
+}
+h2{
+  margin: 20px;
+  padding: 20px;
+  text-align:center;
+  color: #0EC6C6;
+
+  font-family: impact;
+  font-size: 46px;
+  letter-spacing: 12px;
+  text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+}
+input{
+  background-color:  #0EC6C6;
+}
+input:hover{
+  background-color: #01F9F9
+}
+
+#form{
+padding-left: 15%;
+float:left;
+width: 60%;
+
+}
+#jugador{
+width: 30%;
+}
+#jug{
+  font-size: 30px;
+  color: #0EC6C6;
+  font-family: impact;
+}
+.nuevaPartida{
+  width: 150px;
+  height: 50px;
+  background-color: #FF3333;
+}
+.nuevaPartida:hover{
+    background-color: #FF33D4;
+}
+table{
+  width: 547px;
+}
+.paisano{
+  width: 100%;
+  height: 100%;
+}
+.letritas{
+  width: 100%;
+  height: 100%;
+
+}
+@media(max-width:800px){
+    #form,td,input,table{
+      padding: 0;
+            float:none;
+            width: 100%;
+        }
+
+}
