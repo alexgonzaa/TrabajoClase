@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Actividad 11 javascript</title>
-</head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript">
   function calcularCoste(){
       var noches = document.getElementById("noches").value;
@@ -15,63 +15,73 @@
       document.getElementById("resultadoHotel").value = precioHotel;
       document.getElementById("resultadoAvion").value = precioAvion;
       document.getElementById("resultadoCoche").value = precioCoche;
-      document.getElementById("resultadoTotal").value = precioTotal
+      document.getElementById("resultadoTotal").value = precioTotal;
+
+			document.getElementById("resto2").style.display = "block";
+			document.getElementById("titulo").innerHTML = "q tamo q lo tiramo";
   }
   function costeHotel(noches){
-      precio = 140 * noches;
-      return precio;
+      	precio = 140 * noches;
+      	return precio;
   }
   function costeAvion(noches){
-    var ciudad = document.getElementById("ciudad").value;
-    var precio;
-        if(ciudad == "Oviedo"){
+    		var ciudad = document.getElementById("ciudad").value;
+    		var precio;
+        	if(ciudad == "Oviedo"){
              precio = 325;
               }
-        else if(ciudad == "Tokyo"){
+        	else if(ciudad == "Tokyo"){
              precio = 1200;
               }
-        else if(ciudad == "Madrid"){
+        	else if(ciudad == "Madrid"){
              precio = 200;
               }
-        else if(ciudad == "Barcelona"){
+        	else if(ciudad == "Barcelona"){
              precio = 150;
               }
-        if(noches > 3){
+        	if(noches > 3){
              precio = precio - precio*0.1;
               }
        return precio;
    }
-   function costeCoche(noches){
-     var precio = noches * 40;
-     if(noches >=3 && noches < 7){
-       precio = precio - 20;
-     }
-     else if(noches >= 7){
-       precio = precio - 50;
-     }
-      return precio;
+function costeCoche(noches){
+     	var precio = noches * 40;
+     		if(noches >=3 && noches < 7){
+       		precio = precio - 20;
+     			}
+     		else if(noches >= 7){
+       		precio = precio - 50;
+     			}
+    return precio;
     }
+
 	</script>
 </head>
 <body>
-  	<h1>Calcular precio del coche.</h1>
+	<div id="cabecera">
+  	<h1 id="titulo">vamo q no vamo</h1>
+	</div>
+	<div id="resto">
 	   <label>Indica el numero de noches</label>
-	    <input id="noches" type="text">
+	    <input id="noches" type="text"><br>
+			<label>Destino:</label>
       <select id="ciudad">
           <option value="Oviedo">Oviedo</option>
           <option value="Tokyo">Tokyo</option>
           <option value="Madrid">Madrid</option>
           <option value="Barcelona">Barcelona</option>
-      </select>
-	    <input onclick="calcularCoste()" value="calcular" type="button"><br><br>
+      </select><br>
+	    <input class="boton" onclick="calcularCoste()" value="calcular" type="button"><br><br>
+		</div>
+		<div id="resto2" style="display:none;">
 	        <label>Precio del coche</label>
       <input id="resultadoCoche" values="" type="text" disabled="disabled"><br>
           <label>Precio del hotel</label>
       <input id="resultadoHotel" values="" type="text" disabled="disabled"><br>
           <label>Precio del avion</label>
       <input id="resultadoAvion" values="" type="text" disabled="disabled"><br>
-          <label>Coste total del viaje</label>
+          <label class="total">Coste total del viaje:</label>
       <input id="resultadoTotal" values="" type="text" disabled="disabled">
-
+</div>
 </body>
 </html>

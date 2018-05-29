@@ -1,0 +1,42 @@
+body{
+  background-color: rgb(162, 120, 49);
+}
+#cabecera{
+width: 100%;
+text-align: center;
+padding-bottom: 3%;
+}
+#titulo{
+  font-style:italic;
+  font-weight:bold;
+  font-size:8em;
+  font-color:#ffffff;
+  font-family:'Helvetica','Verdana','Monaco',sans-serif;
+}
+#resto{
+  width: 100%;
+}
+input,select{
+    width : 15%;
+    padding : 12px 20px;
+    margin : 8px 0;
+    margin-left: 3%;
+    border : 3px solid #555;
+    display: block;
+}
+label{
+  width: 30%;
+  margin-left: 6%;
+}
+.total{
+    font-size:3em;
+    margin-left: 2%;
+}
+#resultadoTotal{
+  display: inline;
+  width: 5%;
+}
+.boton{
+  width: 5%;
+  margin-left: 3%;
+}
