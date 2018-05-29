@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+  <title>jQuery Drag&Drop</title>
+  <style>
+  #div1 {
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    float: left;
+    margin: 10px 10px 10px 0;
+  }
+    #div2 {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+      float: left;
+      margin: 10px;
+      border: 1px solid #aaaaaa;
+    }
+  img{
+    width: 100px;
+    height: 50px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+     $(function() {
+       $("#div1").draggable({
+         revert: "invalid",
+       });
+       
+       $("#div2").droppable({
+         drop: function(event, ui) {
+           $(this)
+             .find("p")
+               .html("No, es el cerdito volador");
+               $("#super").attr("src","imagen2.png");
+         }
+       });
+     } );
+  </script>
+</head>
+<body>
+
+<div id="div1" >
+<img id="super" src="imagen.png">
+</div>
+<div id="div2" >
+  <p>¿Es un pájaro?¿Es un avión?</p>
+</div>
+
+
+</body>
+</html>
