@@ -10,19 +10,22 @@ var dx = 2;
 var dy = -2;
 //Variables para indicar el tamaño que tendra la paleta
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 95;
 var paddleX = (canvas.width-paddleWidth)/2;
+
 //Variables para las pulsaciones de teclado
 var rightPressed = false;
 var leftPressed = false;
 //variables para dar forma a los ladrillos
-var brickRowCount = 5;
-var brickColumnCount = 3;
+var brickRowCount = 11;
+var brickColumnCount = 8;
 var brickWidth = 75;
 var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
+
+var again;
 
 var audio = document.getElementById("principal");
 var audio2 = document.getElementById("perder");
@@ -84,8 +87,16 @@ function collisionDetection() {
                     if(score == brickRowCount*brickColumnCount) {
                         audio.pause();
                         audio3.play();
-                        alert("YOU WIN, CONGRATS!");
-                        document.location.reload();
+                        alert("Has eliminado todos los bloques, Felicidades!");
+                        var again = prompt("Quieres volver a jugar?");
+                        if(again == "si"){
+                            alert("Juego concluido");
+                              document.location.reload();
+                      }
+                      else{
+                        alert("Hasta la proxima!");
+                          document.location.reload();
+                      }
 
                     }
                 }
@@ -93,6 +104,7 @@ function collisionDetection() {
         }
     }
 }
+
 //Funcion que dibujar la bola
 function drawBall() {
     ctx.beginPath();
@@ -103,6 +115,13 @@ function drawBall() {
 }
 //Funcion que dibuja la paleta
 function drawPaddle() {
+  //Si rompermos 30 bloques, la paleta se hara mas pequeña
+  if(score == 20){
+    paddleWidth = 75;
+  }
+  if(score == 40){
+    paddleWidth = 50;
+  }
     ctx.beginPath();
     ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
     ctx.fillStyle = "#0095DD";
@@ -139,15 +158,9 @@ function drawLives() {
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
-$("#btn").click(function(){
-  if(nombre.val() == ""){
-    alert("Indica tu nombre.");
-  }
-  else{
-    $("#usuario").html(nombre.val());
-    $("#inicio").animate({height: '0px'});
-  }
-});
+
+
+
 //Funcion que llamara a las demas funciones para crear los elementos del juego:
 //los ladrillos,bola,paleta,puntuacion,vidas y deteccion de colisiones.
 //Establece el movimiento de la bola, cada vez que la bola choca en la parte
@@ -177,8 +190,17 @@ function draw() {
             if(!lives) {
               audio.pause();
               audio2.play();
-                alert("GAME OVER");
-                document.location.reload();
+                alert("Has perdido...");
+                var again = prompt("Quieres seguir jugando?");
+                    if(again == "si"){
+                        alert("Puesto que eres un pelin malo, te dare un plus de vidas")
+                      lives=51;
+                      draw();
+                    }
+                    else{
+                      alert("Hasta la proxima!");
+                        document.location.reload();
+                    }
 
             }
             else {
@@ -202,6 +224,22 @@ function draw() {
     y += dy;
 //Con este elemento, el navegador refrescara la pagina automaticamente
     requestAnimationFrame(draw);
+
 }
 
-draw();
+//Funcion a la que llamamos desde el boton, el nombre que introduzcamos lo
+//meteremos en otro input, haremos que el div #primero desaparezca
+function start(){
+    var usuario = document.getElementById("usu").value;
+    if(usuario == ""){
+      alert("El cuadro para el nombre esta vacio, no crees que ahi va tu nombre?.");
+
+    }
+    else{
+      document.getElementById("usuario").innerHTML = "Su majestad " + usuario;
+      document.getElementById("primero").style.display =  "none";
+      document.getElementById("segundo").style.display =  "block";
+      draw();
+    }
+
+}
