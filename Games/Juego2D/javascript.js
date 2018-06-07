@@ -82,6 +82,7 @@ function collisionDetection() {
                     score++;
                     audio4.play();
                     if(score == brickRowCount*brickColumnCount) {
+                        audio.pause();
                         audio3.play();
                         alert("YOU WIN, CONGRATS!");
                         document.location.reload();
@@ -138,9 +139,17 @@ function drawLives() {
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Lives: "+lives, canvas.width-65, 20);
 }
-
+$("#btn").click(function(){
+  if(nombre.val() == ""){
+    alert("Indica tu nombre.");
+  }
+  else{
+    $("#usuario").html(nombre.val());
+    $("#inicio").animate({height: '0px'});
+  }
+});
 //Funcion que llamara a las demas funciones para crear los elementos del juego:
-//los ladrillos,bola,paleta,puntiacion,vidas y deteccion de colisiones.
+//los ladrillos,bola,paleta,puntuacion,vidas y deteccion de colisiones.
 //Establece el movimiento de la bola, cada vez que la bola choca en la parte
 //inferior, resta una vida.
 function draw() {
@@ -166,6 +175,7 @@ function draw() {
         else {
             lives--;
             if(!lives) {
+              audio.pause();
               audio2.play();
                 alert("GAME OVER");
                 document.location.reload();

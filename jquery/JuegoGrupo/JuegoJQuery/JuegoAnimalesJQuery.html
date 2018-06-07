@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Permanent+Marker" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="javascript.js"></script>
+  <title>Juego Animales JQuery</title>
+</head>
+
+<body>
+  <audio id="cancion">
+    <source src="aud/wii.mp3" type="audio/mp3">
+  </audio>
+  <audio id="audif">
+    <source src="aud/dificil.mp3" type="audio/mp3">
+  </audio>
+  <audio id="sngganar">
+    <source src="aud/gtawin.mp3" type="audio/mp3">
+  </audio>
+  <audio id="sngperder">
+    <source src="aud/wasted.mp3" type="audio/mp3">
+  </audio>
+  <img src="img/win.jpg" alt="" width="100%" height="0%" style="position: absolute; " id="win">
+  <img src="img/lose.png" alt="" width="100%" height="0%" style="position: absolute; " id="lose">
+  <div id="inicio">
+    <h2 id="nombre">INTRODUCE TU NOMBRE</h2>
+    <input type="text" id="usu">
+    <br>
+    <h2 id="textEdad">INTRODUCE TU EDAD</h2>
+    <input type="number" id="ed">
+    <br>
+    <br>
+    <button id="btn">Jugar!</button>
+    <br>
+    <h4 id="textDificil">¿MODO DIFICIL?</h4>
+    <input type="checkbox" id="dificil">
+  </div>
+  <div id="juego">
+    <div class="text">
+      <h1 id="textoAdivina">ADIVINA EL ANIMAL</h1>
+      <h2 id="usuario"></h2>
+      <h2 id="edad"></h2>
+    </div>
+    <img src="img/cat.jpg" width="500px" height="500px" class="imagen" id="uno">
+    <img src="img/horse.jpg" width="500px" height="500px" class="imagen" id="dos">
+    <img src="img/kang.jpg" width="500px" height="500px" class="imagen" id="tres">
+    <img src="img/carrion.jpg" width="500px" height="500px" class="imagen" id="cuatro">
+
+    <div class="text" id="textoResultado">
+      <h2 id="hachedos"></h2>
+      <h3 id="puntuacion"></h3>
+    </div>
+    <div id="puntuacion">
+      <h2>ACIERTOS</h2>
+      <h2 id="aci"></h2>
+      <h2>FALLOS</h2>
+      <h2 id="fal"></h2>
+    </div>
+    <img src="img/cat.jpg" width="500px" height="500px" id="resultado">
+  </div>
+
+</body>
+
+</html>

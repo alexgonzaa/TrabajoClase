@@ -5,12 +5,12 @@
     <title>Gamedev Canvas Workshop</title>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
 
-
 </head>
 <body>
+<div id="primero">
+</div>
+<div id="segundo">
 
-
-<canvas id="myCanvas" width="480" height="320"></canvas>
 <audio id="principal">
   <source src="audio/cancion1.mp3" type="audio/mp3">
 </audio>
@@ -25,5 +25,20 @@
 </audio>
 <script type="text/javascript" src="javascript.js"></script>
 
+
+  <div id="inicio">
+    <h2 id="nombre">INTRODUCE TU NOMBRE</h2>
+    <input type="text" id="usu">
+    <br>
+    <br>
+    <button id="btn">Jugar!</button>
+    <br>
+  </div>
+  <div id="juego">
+    <div class="text">
+      <h1 id="textoAdivina">Gamedev Canvas Workshop</h1>
+      <h2 id="usuario"></h2>
+      <canvas id="myCanvas" width="480" height="320"></canvas>
+    </div>
 </body>
 </html>
