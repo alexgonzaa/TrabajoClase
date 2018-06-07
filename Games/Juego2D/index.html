@@ -108,11 +108,10 @@ function collisionDetection() {
                     score++;
                     audio4.play();
                     if(score == brickRowCount*brickColumnCount) {
-                        alert("YOU WIN, CONGRATS!");
-                        audio.pause();
                         audio3.play();
+                        alert("YOU WIN, CONGRATS!");
                         document.location.reload();
-                        draw();
+
                     }
                 }
             }
@@ -193,11 +192,10 @@ function draw() {
         else {
             lives--;
             if(!lives) {
+              audio2.play();
                 alert("GAME OVER");
-                audio.pause();
-                audio2.play();
                 document.location.reload();
-                draw();
+
             }
             else {
                 x = canvas.width/2;
