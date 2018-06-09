@@ -26,7 +26,7 @@ var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 
 var again;
-
+var contador = 0;
 var audio = document.getElementById("principal");
 var audio2 = document.getElementById("perder");
 var audio3 = document.getElementById("ganar");
@@ -148,15 +148,17 @@ function drawBricks() {
 }
 //Funcion para indicar los ladrillos que se han eliminado
 function drawScore() {
-    ctx.font = "16px Arial";
+  document.getElementById("puntos").innerHTML = " " + score;
+  /*  ctx.font = "16px Arial";
     ctx.fillStyle = "#0095DD";
-    ctx.fillText("Score: "+score, 8, 20);
+    ctx.fillText("Score: "+score, 8, 20);*/
 }
 //Funcion para indicar cuantas vidas nos quedan
 function drawLives() {
-    ctx.font = "16px Arial";
+  document.getElementById("vidas").innerHTML = " " + lives;
+  /*  ctx.font = "16px Arial";
     ctx.fillStyle = "#0095DD";
-    ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+    ctx.fillText("Lives: "+lives, canvas.width-65, 20);*/
 }
 
 
@@ -174,7 +176,7 @@ function draw() {
     drawScore();
     drawLives();
     collisionDetection();
-
+  //var user = document.getElementById("usuario").value;
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
@@ -191,15 +193,25 @@ function draw() {
               audio.pause();
               audio2.play();
                 alert("Has perdido...");
+                if(contador == 0){
                 var again = prompt("Quieres seguir jugando?");
-                    if(again == "si"){
-                        alert("Puesto que eres un pelin malo, te dare un plus de vidas")
-                      lives=51;
+                    if(again == "si" || again == "yes" || again == "y" || again == "SI"){
+                        alert("Eres un pelin malo, te dare un plus de vidas")
+                      lives=6;
+
                       draw();
+
                     }
                     else{
                       alert("Hasta la proxima!");
                         document.location.reload();
+                    }
+                      contador++;
+                  }
+                    else{
+                      alert("No hay terceras oportunidades");
+                        document.location.reload();
+
                     }
 
             }
@@ -230,16 +242,17 @@ function draw() {
 //Funcion a la que llamamos desde el boton, el nombre que introduzcamos lo
 //meteremos en otro input, haremos que el div #primero desaparezca
 function start(){
-    var usuario = document.getElementById("usu").value;
-    if(usuario == ""){
+    var user = document.getElementById("usu").value;
+    if(user == ""){
       alert("El cuadro para el nombre esta vacio, no crees que ahi va tu nombre?.");
 
     }
     else{
-      document.getElementById("usuario").innerHTML = "Su majestad " + usuario;
+      alert("A jugar "+ user);
+      document.getElementById("usuario").innerHTML = "Jugador actual: " + user;
       document.getElementById("primero").style.display =  "none";
       document.getElementById("segundo").style.display =  "block";
-      draw();
+      draw(user);
     }
 
 }

@@ -8,6 +8,7 @@ body{
   background: #eee;
   display: block;
   margin: 0 auto;
+
 }
 #primero{
   width: 100%;
@@ -21,14 +22,17 @@ body{
 #segundo {
   width: 100%;
   height: 100%;
-}
-.text {
-  width: 100%;
-  height: 10%;
   text-align: center;
   font-size: 1.5vw;
   float: left;
 }
+#puntuacion{
+  text-align: center;
+}
+#puntos{
+  padding-right: 2%;
+}
+
 #nombre{
   margin-top:15%;
 }
