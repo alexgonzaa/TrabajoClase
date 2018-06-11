@@ -90,6 +90,9 @@ function start(){
     }
 
 }
+function pause(){
+
+}
 
 //Funcion para detectar cuando colision la bola con los ladrillos, sumandolo
 //a la puntuacion
