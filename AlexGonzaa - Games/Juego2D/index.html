@@ -34,12 +34,14 @@
 <div id="segundo" style="display:none;">
 
       <h1 id="titulo">Gamedev Canvas Workshop</h1>
-      <h2 id="usuario"></h2>
+
+      <h2 id="usuario">Jugador actual: </h2>
       <div id="puntuacion" width="980" height="720">
         <a>Score:<a><a id="puntos"></a>
         <a>Lives:</a><a id="vidas"></a>
-        <button id="pausa" onclick="pause()">Pause</button>
-
+        <button id="pausa" onclick="pause()">Stop musica</button>
+        <button id="play" onclick="play()">Play musica</button>
+        <button id="choque" onclick="pause2()">Stop impacto</button>
       </div>
       <canvas id="myCanvas" width="980" height="720"></canvas>
 

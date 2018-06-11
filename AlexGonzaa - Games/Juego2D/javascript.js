@@ -35,7 +35,7 @@ var audio4 = document.getElementById("colision");
 
 //Variables iniciales para la puntuacion y las vidas
 var score = 0;
-var lives = 3;
+var lives = 1;
 //Variables para colocar los ladrillos en orden
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
@@ -77,13 +77,14 @@ function mouseMoveHandler(e) {
 //meteremos en otro input, haremos que el div #primero desaparezca
 function start(){
     var user = document.getElementById("usu").value;
+    var texto = "Jugador actual: "
     if(user == ""){
       alert("El cuadro para el nombre esta vacio, no crees que ahi va tu nombre?.");
 
     }
     else{
       alert("A jugar "+ user);
-      document.getElementById("usuario").innerHTML =  user;
+      document.getElementById("usuario").innerText= texto + user;
       document.getElementById("primero").style.display =  "none";
       document.getElementById("segundo").style.display =  "block";
       draw();
@@ -91,7 +92,13 @@ function start(){
 
 }
 function pause(){
-
+document.getElementById("principal").src = "";
+}
+function play(){
+document.getElementById("principal").src = "audio/cancion1.mp3";
+}
+function pause2(){
+document.getElementById("colision").src = "";
 }
 
 //Funcion para detectar cuando colision la bola con los ladrillos, sumandolo
@@ -109,14 +116,15 @@ function collisionDetection() {
                     if(score == brickRowCount*brickColumnCount) {
                         audio.pause();
                         audio3.play();
-                        alert("Has eliminado todos los bloques, Felicidades!");
-                        var again = prompt("Quieres volver a jugar?");
+                        var user = document.getElementById("usu").value;
+                        alert("Has eliminado todos los bloques, Felicidades " + user + "!");
+                        var again = prompt("Quieres volver a jugar " + user +"?");
                         if(again == "si"){
                             alert("Juego concluido");
                               document.location.reload();
                       }
                       else{
-                        alert("Hasta la proxima!");
+                        alert("Hasta la proxima " + user + "!");
                           document.location.reload();
                       }
 
@@ -198,7 +206,7 @@ function draw() {
     drawScore();
     drawLives();
     collisionDetection();
-  var user = document.getElementById("usuario").innerHTML;
+    var user = document.getElementById("usu").value;
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
@@ -216,7 +224,7 @@ function draw() {
               audio2.play();
                 alert("Has perdido...");
                 if(contador == 0){
-                var again = prompt("Quieres seguir jugando?");
+                var again = prompt("Quieres seguir jugando " + user + "?");
                     if(again == "si" || again == "yes" || again == "y" || again == "SI"){
                         alert("Eres un pelin malo, te dare un plus de vidas " + user)
                       lives=6;
@@ -225,7 +233,7 @@ function draw() {
 
                     }
                     else{
-                      alert("Hasta la proxima!");
+                      alert("Hasta la proxima " + user + "!");
                         document.location.reload();
                     }
                       contador++;
