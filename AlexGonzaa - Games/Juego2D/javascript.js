@@ -72,6 +72,25 @@ function mouseMoveHandler(e) {
         paddleX = relativeX - paddleWidth/2;
     }
 }
+
+//Funcion a la que llamamos desde el boton, el nombre que introduzcamos lo
+//meteremos en otro input, haremos que el div #primero desaparezca
+function start(){
+    var user = document.getElementById("usu").value;
+    if(user == ""){
+      alert("El cuadro para el nombre esta vacio, no crees que ahi va tu nombre?.");
+
+    }
+    else{
+      alert("A jugar "+ user);
+      document.getElementById("usuario").innerHTML = "Jugador actual: " + user;
+      document.getElementById("primero").style.display =  "none";
+      document.getElementById("segundo").style.display =  "block";
+      draw();
+    }
+
+}
+
 //Funcion para detectar cuando colision la bola con los ladrillos, sumandolo
 //a la puntuacion
 function collisionDetection() {
@@ -176,7 +195,7 @@ function draw() {
     drawScore();
     drawLives();
     collisionDetection();
-  //var user = document.getElementById("usuario").value;
+  var user = document.getElementById("usuario");
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
@@ -196,7 +215,7 @@ function draw() {
                 if(contador == 0){
                 var again = prompt("Quieres seguir jugando?");
                     if(again == "si" || again == "yes" || again == "y" || again == "SI"){
-                        alert("Eres un pelin malo, te dare un plus de vidas")
+                        alert("Eres un pelin malo, te dare un plus de vidas " + user)
                       lives=6;
 
                       draw();
@@ -236,23 +255,5 @@ function draw() {
     y += dy;
 //Con este elemento, el navegador refrescara la pagina automaticamente
     requestAnimationFrame(draw);
-
-}
-
-//Funcion a la que llamamos desde el boton, el nombre que introduzcamos lo
-//meteremos en otro input, haremos que el div #primero desaparezca
-function start(){
-    var user = document.getElementById("usu").value;
-    if(user == ""){
-      alert("El cuadro para el nombre esta vacio, no crees que ahi va tu nombre?.");
-
-    }
-    else{
-      alert("A jugar "+ user);
-      document.getElementById("usuario").innerHTML = "Jugador actual: " + user;
-      document.getElementById("primero").style.display =  "none";
-      document.getElementById("segundo").style.display =  "block";
-      draw(user);
-    }
 
 }
