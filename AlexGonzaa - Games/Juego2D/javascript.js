@@ -83,7 +83,7 @@ function start(){
     }
     else{
       alert("A jugar "+ user);
-      document.getElementById("usuario").innerHTML = "Jugador actual: " + user;
+      document.getElementById("usuario").innerHTML =  user;
       document.getElementById("primero").style.display =  "none";
       document.getElementById("segundo").style.display =  "block";
       draw();
@@ -198,7 +198,7 @@ function draw() {
     drawScore();
     drawLives();
     collisionDetection();
-  var user = document.getElementById("usuario");
+  var user = document.getElementById("usuario").innerHTML;
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
     }
