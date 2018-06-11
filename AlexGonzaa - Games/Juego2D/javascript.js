@@ -6,8 +6,8 @@ var ballRadius = 10;
 //Variables para delimitar la pantalla en el juego
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+var dx = 4;
+var dy = -4;
 //Variables para indicar el tamaño que tendra la paleta
 var paddleHeight = 10;
 var paddleWidth = 95;
@@ -224,9 +224,9 @@ function draw() {
         else {
             lives--;
 
-//Una vez que hayamos perdido todas las vidas, podremos continuar jugando una
-//vez mas desde el punto en el que hayamos perdido, pero solo tendremos una
-//oportunidad mas.
+            //Una vez que hayamos perdido todas las vidas, podremos continuar jugando una
+            //vez mas desde el punto en el que hayamos perdido, pero solo tendremos una
+            //oportunidad mas.
             if(!lives) {
               audio.pause();
               audio2.play();
