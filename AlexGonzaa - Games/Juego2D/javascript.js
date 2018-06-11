@@ -25,8 +25,11 @@ var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 
+//variable en la que se guardara la respuesta del usuario para continuar jugando
 var again;
+//variable para saber si es el segundo intento
 var contador = 0;
+//varibles para guardar las canciones
 var audio = document.getElementById("principal");
 var audio2 = document.getElementById("perder");
 var audio3 = document.getElementById("ganar");
@@ -82,6 +85,7 @@ function start(){
       alert("El cuadro para el nombre esta vacio, no crees que ahi va tu nombre?.");
 
     }
+
     else{
       alert("A jugar "+ user);
       document.getElementById("usuario").innerText= texto + user;
@@ -89,8 +93,10 @@ function start(){
       document.getElementById("segundo").style.display =  "block";
       draw();
     }
-
 }
+
+//Funciones para los botones de la musica, dependiendo de cual pulsemos,
+//pausaremos, reanudaremos la musica de fondo y la de choque
 function pause(){
 document.getElementById("principal").src = "";
 }
@@ -113,6 +119,9 @@ function collisionDetection() {
                     b.status = 0;
                     score++;
                     audio4.play();
+//Si la puntuacion es igual que el numero de bloques, se iniciara un audio, y
+//sacaremos por pantalla una serie de mensajes junto con el nombre de usuario
+//que introducimos al principio, finalmente recargara la pagina
                     if(score == brickRowCount*brickColumnCount) {
                         audio.pause();
                         audio3.play();
@@ -145,10 +154,11 @@ function drawBall() {
 }
 //Funcion que dibuja la paleta
 function drawPaddle() {
-  //Si rompermos 30 bloques, la paleta se hara mas pequeña
+//Si rompermos 30 bloques, la paleta se hara mas pequeña
   if(score == 20){
     paddleWidth = 75;
   }
+//Si rompermos 40 bloques, la paleta se hara mas pequeña
   if(score == 40){
     paddleWidth = 50;
   }
@@ -179,16 +189,10 @@ function drawBricks() {
 //Funcion para indicar los ladrillos que se han eliminado
 function drawScore() {
   document.getElementById("puntos").innerHTML = " " + score;
-  /*  ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Score: "+score, 8, 20);*/
 }
 //Funcion para indicar cuantas vidas nos quedan
 function drawLives() {
   document.getElementById("vidas").innerHTML = " " + lives;
-  /*  ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Lives: "+lives, canvas.width-65, 20);*/
 }
 
 
@@ -219,6 +223,10 @@ function draw() {
         }
         else {
             lives--;
+
+//Una vez que hayamos perdido todas las vidas, podremos continuar jugando una
+//vez mas desde el punto en el que hayamos perdido, pero solo tendremos una
+//oportunidad mas.
             if(!lives) {
               audio.pause();
               audio2.play();
