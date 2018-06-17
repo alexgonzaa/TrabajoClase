@@ -127,15 +127,13 @@ function collisionDetection() {
                         audio3.play();
                         var user = document.getElementById("usu").value;
                         alert("Has eliminado todos los bloques, Felicidades " + user + "!");
-                        var again = prompt("Quieres volver a jugar " + user +"?");
-                        if(again == "si"){
-                            alert("Juego concluido");
-                              document.location.reload();
-                      }
-                      else{
+
+
+
+
                         alert("Hasta la proxima " + user + "!");
-                          document.location.reload();
-                      }
+                        document.location.reload();
+
 
                     }
                 }
@@ -232,8 +230,8 @@ function draw() {
               audio2.play();
                 alert("Has perdido...");
                 if(contador == 0){
-                var again = prompt("Quieres seguir jugando " + user + "?");
-                    if(again == "si" || again == "yes" || again == "y" || again == "SI"){
+                var again = confirm("Quieres seguir jugando " + user + "?");
+                    if(again == true){
                         alert("Eres un pelin malo, te dare un plus de vidas " + user)
                       lives=6;
 
