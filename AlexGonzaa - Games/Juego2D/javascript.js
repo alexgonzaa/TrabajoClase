@@ -127,10 +127,6 @@ function collisionDetection() {
                         audio3.play();
                         var user = document.getElementById("usu").value;
                         alert("Has eliminado todos los bloques, Felicidades " + user + "!");
-
-
-
-
                         alert("Hasta la proxima " + user + "!");
                         document.location.reload();
 
